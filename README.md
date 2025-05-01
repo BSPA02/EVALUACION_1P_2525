@@ -3,8 +3,8 @@
 ### Carrera de Ingeniería en Software  
 
 **Asignatura:** Manejo y Configuración de Software  
-**Nombre del Estudiante:** ___________________________  
-**Fecha:** ___________________  
+**Nombre del Estudiante:** Brayan Stiven Pilla Anancolla
+**Fecha:** 30/04/2025
 
 ---
 
@@ -38,6 +38,22 @@
 
 **📝 Respuesta:**
 
+- Diferencias
+  - **Git clone** es un comando git que permite crear una copia de un repositorio remoto a uno local situado en tu computador, mientras que **fork** no es un comando, es una opcion que nos da GitHub para crear una copia de un repositorio al cual tenemos acceso hacia nuestra cuenta GitHub, por ultimo, el **git pull** se usa para traer los ultimos cambios de tu repositorio remoto a tu copia local y unirlos, por lo que se necesita primeramente tener una copia local.
+- ¿Cómo se realizó el fork?
+  - Para la realización del fork unicamente necesitabamos el acceso al repositorio de origen, con ese acceso, mediante el boton situado en la parte superior con el texto **fork**, al darle click copiamos el repositorio a nuestra cuenta GitHub al cual al momento de realizar el fork se añadio la siguiente descripción "Prueba Primer Parcial".
+
+    ![Realización del fork](img\fork.png)
+
+- ¿Cómo se realizó el clone del fork?
+  - Ya teniendo el repositorio en nuestra cuenta, entramos en nuestro git bash y nos situamos donde queramos realizar la copia, una vez esto, mediante el comando **git clone https://github.com/BSPA02/EVALUACION_1P_2525** realizamos una copia local en la cual trabajaremos.
+
+    ![Realización del clone](img\clone.png)
+
+- ¿Cómo se verificó que se estaba trabajando sobre el fork y no sobre el repositorio original?
+  - Mediante el comando **git remote -v** podemos observar que se esta trabajando en el fork que realizamos en nuestra cuenta GitHub, ya que de no ser asi, la ruta mostrada deberia ser **https://github.com/santiagojara/EVALUACION_1P_2525** que es la que pertenece al repositorio original.
+    ![Comprobacion del repositorio en el que estamos trabajando](img\comprobacion.png)
+
 <!-- Escribe aquí tu respuesta a la Pregunta 1 -->
 
 ---
@@ -58,6 +74,17 @@
 - Solo el **segundo commit** debe llevar el **tag `"Pregunta 2"`**.
 
 **📝 Respuesta:**
+
+- El archivo **.gitignore** tiene la funcion de indicarle a nuestro Git que archivos, tipo de archivos o carpetas deben ser ignorados, esto quiere decir que los archivos especificados dentro de nuestro **.gitignore** no seguiran un rastreo, por lo que cualquier cambio realizado en estos no se tomara en cuenta al momento de realizar los commit respectivos.
+
+- Configuración del .gitignore:
+
+  ![Configuración del .gitignore](img\ignore.png)
+
+- Comprobación de que funciona:
+
+   ![Comprobación del .gitignore](img\comprobacion_ignore.png)
+
 
 <!-- Escribe aquí tu explicación y evidencia para la Pregunta 2 -->
 
@@ -88,6 +115,29 @@
 - El flujo debe respetar la estructura de Git Flow con las ramas `develop` y `main`.
 
 **📝 Respuesta:**
+
+- Comandos utilizados:
+  - git flow init 
+    - Este comando inicializa el repositorio con Git Flow creando la estructura predetermindad de Git Flow.
+
+      ![](img\flowinit.png)
+
+  - git flow feature start ingresar-encabezado
+    - Se crea una nueva rama tipo feature llamada ingresar-encabezado en la cual se realizará la adición del encabezado al README.md
+      ![](img\featurestart.png)
+  - code .
+    - Utilizado para abrir nuestro proyecto en el editor de código.
+  - git add .
+    - Utilizado para preparar los cambios realizados para el siguiente commit.
+  - git commit -m "Se añadio el nombre completo del estudiante en el encabezado"
+    - Comando para realizar el commit de los cambios con el mensaje correspondiente.
+      ![](img\featurecommit.png)
+  - git flow feature finish ingresar-encabezado
+    - Finaliza la rama feature/ingresar-encabezado, hace el merge correspondiente a develop y elimina la rama feature una vez completada la tarea.
+      ![](img\featurefinish.png)
+
+- Reflexión:
+  - Aplicar Git Flow en proyectos colaborativos o de larga duración ofrece una estructura clara para gestionar el desarrollo de software. Facilita la colaboración al separar las ramas de características, desarrollo y producción, lo que minimiza los conflictos y mejora la integración de cambios. Además, permite un control más efectivo de versiones y facilita el manejo de lanzamientos y correcciones urgentes, garantizando un flujo de trabajo organizado y eficiente.
 
 <!-- Escribe aquí tu respuesta completa a la Pregunta 3 -->
 
@@ -121,6 +171,27 @@
 - Una explicación de cómo se comprobó que el repositorio requería revisión antes de aceptar el pull request (por ejemplo, a través del mensaje mostrado por GitHub).
 
 **📝 Respuesta:**
+
+- Explicar qué es un **issue** en GitHub.
+  - Un issue en GitHub es una herramienta utilizada para realizar un seguimiento de tareas, errores, mejoras o cualquier otro tipo de discusión sobre un proyecto. Los issues permiten a los colaboradores organizar y priorizar el trabajo, asignar tareas y mantener una comunicación clara sobre el progreso de un proyecto.
+
+- Explicar qué es un **pull request** y cuál es su finalidad.
+  - Un pull request es una solicitud para fusionar los cambios realizados en una rama a otra, generalmente de desarrollo a producción. Su finalidad es permitir que otros miembros del equipo revisen el código antes de que se fusione, asegurando que se mantenga la calidad y que no se introduzcan errores.
+
+- Indicar la diferencia entre ambos y cómo se relacionan en un entorno de trabajo colaborativo.
+  - La principal diferencia entre un issue y un pull request es su propósito: los issues se usan para gestionar tareas o problemas en un proyecto, mientras que un pull request es una solicitud para integrar cambios en el código. En un entorno colaborativo, los issues organizan el trabajo, y los pull requests permiten la revisión y la integración de esos cambios propuestos.
+
+- Resumen procedimiento:
+  - Se creó un issue titulado "Respuesta a la Pregunta 4", se editaron los cambios en README.md, se hizo un commit y se subieron a develop. Luego, se creó un pull request vinculado al issue. GitHub mostró un mensaje que indicaba que el pull request requería revisión previa al merge.
+- El número del issue creado:
+  #33
+- El enlace al pull request:
+  - https://github.com/BSPA02/EVALUACION_1P_2525/pull/2
+- Explicación de cómo se comprobó que el repositorio requería revisión antes de aceptar el pull request:
+  - Se comprobó que el repositorio requería revisión antes de aceptar el pull request cuando GitHub mostró el mensaje: "This pull request must be approved by at least one reviewer before merging"
+    ![](img\prueba.png)
+
+
 
 <!-- Escribe aquí tu respuesta completa a la Pregunta 4 -->
 
